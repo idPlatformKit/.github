@@ -36,8 +36,8 @@ flowchart LR
 - ✅ Backstage Software Template opening a pull request with a `Tenant` claim, verified end to end: from the form to a provisioned namespace
 - ✅ Each tenant's Kubernetes and Crossplane resources visible in the portal
 - ✅ Each tenant's OpenBao secrets delivered as Kubernetes Secrets by External Secrets Operator
-- 🔜 Postgres databases nested in tenants
-- 🔜 Kyverno guardrails, per-tenant observability
+- ✅ Postgres databases added to a tenant from the portal, linked to it in the catalog, with per-tenant names on the shared server
+- 🔜 Kyverno guardrails, a "new app" golden path, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
 
