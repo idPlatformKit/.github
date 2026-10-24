@@ -35,7 +35,8 @@ flowchart LR
 - ✅ GitOps flow: Argo CD installs the platform and syncs claims from the instances repository
 - ✅ Backstage Software Template opening a pull request with a `Tenant` claim, verified end to end: from the form to a provisioned namespace
 - ✅ Each tenant's Kubernetes and Crossplane resources visible in the portal
-- 🔜 External Secrets Operator delivering each tenant's OpenBao secrets, Postgres databases nested in tenants
+- ✅ Each tenant's OpenBao secrets delivered as Kubernetes Secrets by External Secrets Operator
+- 🔜 Postgres databases nested in tenants
 - 🔜 Kyverno guardrails, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
