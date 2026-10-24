@@ -12,7 +12,7 @@ Everything is designed to be read, run and reused: each design choice is documen
 flowchart LR
     Dev([Developer]) -->|fills a form| Portal[Portal<br/>Backstage]
     Portal -->|opens a PR with a claim| Repo[(Instances repo)]
-    Repo -->|synced by| Argo[ArgoCD]
+    Repo -->|synced by| Argo[Argo CD]
     Argo --> XP[Orchestrator<br/>Crossplane v2]
     XP --> NS[Tenant namespace<br/>quota · RBAC · network policy]
     XP --> Bao[OpenBao namespace<br/>isolated secrets]
@@ -24,15 +24,17 @@ flowchart LR
 | Repository | Role | Stack |
 |---|---|---|
 | [**Orchestrator**](https://github.com/idPlatformKit/Orchestrator) | Self-service infrastructure: a library of Crossplane compositions (`Tenant`, `PostgresDatabase`), end-to-end tested on kind | Crossplane v2, OpenBao, provider-sql, kustomize |
-| [**portal**](https://github.com/idPlatformKit/portal) | Developer portal: software catalog, GitHub authentication, org and team sync | Backstage |
+| [**portal**](https://github.com/idPlatformKit/portal) | Developer portal: software catalog, GitHub authentication, org and team sync, and the "New Tenant" Software Template | Backstage |
+| [**instances**](https://github.com/idPlatformKit/instances) | The claims (`Tenant`, `PostgresDatabase`) that should exist on the platform, validated in CI and synced by Argo CD | YAML, Crossplane CLI |
 
 ## Where it stands
 
 - ✅ Multi-tenant namespaces with per-tenant secrets isolation (OpenBao namespaces + Kubernetes auth)
 - ✅ Self-service Postgres databases
 - ✅ Backstage portal with GitHub sign-in and group import
-- 🚧 GitOps flow: ArgoCD + instances repository
-- 🚧 Backstage Software Template creating infrastructure claims
+- ✅ GitOps flow: Argo CD installs the platform and syncs claims from the instances repository
+- ✅ Backstage Software Template opening a pull request with a `Tenant` claim, verified end to end: from the form to a provisioned namespace
+- 🚧 Tenant resources and status visible in Backstage (Kubernetes/Crossplane plugin)
 - 🔜 External Secrets Operator, Kyverno guardrails, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
