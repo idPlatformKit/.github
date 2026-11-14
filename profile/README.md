@@ -47,8 +47,10 @@ Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/O
 
 ## Write-ups
 
-- TODO_TITRE_ARTICLE_1 : TODO_LIEN_1
-- TODO_TITRE_ARTICLE_2 : TODO_LIEN_2
+- [Backstage.io Series, Part 1: Getting Started & Setting Up PostgreSQL](https://antoyavin.github.io/writing/backstage-series-part-1-getting-started/)
+- [Backstage.io Series, Part 2: GitHub Authentication & User Ingestion](https://antoyavin.github.io/writing/backstage-series-part-2-github-auth/)
+
+More on [Anas Touil's blog](https://antoyavin.github.io/writing/).
 
 ## Contributing
 
