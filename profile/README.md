@@ -6,6 +6,8 @@ IdPlatformKit shows, end to end, how a platform team can give developers self-se
 
 Everything is designed to be read, run and reused: each design choice is documented, and the whole stack starts locally on [kind](https://kind.sigs.k8s.io/) with no cloud account.
 
+**Website: [idplatformkit.github.io](https://idplatformkit.github.io)**, with the architecture, the design decisions, how to run it, and recorded demos.
+
 ## How it fits together
 
 ```mermaid
@@ -54,4 +56,4 @@ Issues, questions and ideas are welcome. Issues labelled [`good first issue`](ht
 
 ---
 
-Built by [Anas Touil](TODO_LIEN_LINKEDIN), Platform Engineer (CKA, CKAD).
+Built by [Anas Touil](https://www.linkedin.com/in/anas-touil/), Platform Engineer (CKA, CKAD).
