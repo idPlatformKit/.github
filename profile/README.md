@@ -43,7 +43,8 @@ flowchart LR
 - ✅ HTTPS on kind: OpenBao and Argo CD on `https://<name>.127.0.0.1.nip.io`, through Gateway API (Envoy Gateway) and cert-manager with a local CA, no port-forwards
 - ✅ Installs on your own GitHub org in two commands (`make setup`, `make up`): a guide prepares your org, your instances repository and the portal's sign-in, and the portal runs in the cluster
 - ✅ Single sign-on with Dex: the org's GitHub teams are groups for kubectl, Argo CD and OpenBao, so a team gets access to its own tenants and secrets, and `platform-admins` to everything
-- 🔜 Dedicated identities for CI, agents and break-glass access
+- ✅ Dedicated identities: read-only, expiring access for agents and CI (GitHub Actions OIDC, no stored kubeconfig), and an audited, one-hour break-glass instead of shared admin credentials
+- 🔜 The portal made our own: an IdPlatformKit theme and an admin page for platform admins
 - 🔜 Kyverno guardrails, a "new app" golden path, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
