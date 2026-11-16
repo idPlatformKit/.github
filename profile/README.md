@@ -25,7 +25,7 @@ flowchart LR
 
 | Repository | Role | Stack |
 |---|---|---|
-| [**Orchestrator**](https://github.com/idPlatformKit/Orchestrator) | Self-service infrastructure: a library of Crossplane compositions (`Tenant`, `PostgresDatabase`), end-to-end tested on kind | Crossplane v2, OpenBao, provider-sql, kustomize, Argo CD, Gateway API (Envoy Gateway), cert-manager |
+| [**Orchestrator**](https://github.com/idPlatformKit/Orchestrator) | Self-service infrastructure: a library of Crossplane compositions (`Tenant`, `PostgresDatabase`), end-to-end tested on kind | Crossplane v2, OpenBao, provider-sql, kustomize, Argo CD, Gateway API (Envoy Gateway), cert-manager, Dex |
 | [**portal**](https://github.com/idPlatformKit/portal) | Developer portal: software catalog, GitHub authentication, org and team sync, and the "New Tenant" Software Template | Backstage |
 | [**instances**](https://github.com/idPlatformKit/instances) | The claims (`Tenant`, `PostgresDatabase`) that should exist on the platform, validated in CI and synced by Argo CD | YAML, Crossplane CLI |
 
@@ -40,7 +40,8 @@ flowchart LR
 - ✅ Each tenant's OpenBao secrets delivered as Kubernetes Secrets by External Secrets Operator
 - ✅ Postgres databases added to a tenant from the portal, linked to it in the catalog, with per-tenant names on the shared server
 - ✅ HTTPS on kind: OpenBao and Argo CD on `https://<name>.127.0.0.1.nip.io`, through Gateway API (Envoy Gateway) and cert-manager with a local CA, no port-forwards
-- 🔜 Single sign-on with Dex, GitHub teams as groups across kubectl, Argo CD, OpenBao and Grafana
+- ✅ Single sign-on with Dex: the org's GitHub teams are groups for kubectl, Argo CD and OpenBao, so a team gets access to its own tenants and secrets, and `platform-admins` to everything
+- 🔜 Dedicated identities for CI, agents and break-glass access
 - 🔜 Kyverno guardrails, a "new app" golden path, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
