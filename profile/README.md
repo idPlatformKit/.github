@@ -26,8 +26,9 @@ flowchart LR
 | Repository | Role | Stack |
 |---|---|---|
 | [**Orchestrator**](https://github.com/idPlatformKit/Orchestrator) | Self-service infrastructure: a library of Crossplane compositions (`Tenant`, `PostgresDatabase`), end-to-end tested on kind | Crossplane v2, OpenBao, provider-sql, kustomize, Argo CD, Gateway API (Envoy Gateway), cert-manager |
-| [**portal**](https://github.com/idPlatformKit/portal) | Developer portal: software catalog, GitHub authentication, org and team sync, and the "New Tenant" Software Template | Backstage |
-| [**instances**](https://github.com/idPlatformKit/instances) | The claims (`Tenant`, `PostgresDatabase`) that should exist on the platform, validated in CI and synced by Argo CD | YAML, Crossplane CLI |
+| [**portal**](https://github.com/idPlatformKit/portal) | Developer portal: software catalog, GitHub authentication, org and team sync, and the Software Templates. Runs in the cluster | Backstage |
+| [**instances-template**](https://github.com/idPlatformKit/instances-template) | The starting point of each installation's instances repository: the claims (`Tenant`, `PostgresDatabase`) that should exist on the platform, validated in CI and synced by Argo CD | YAML, Crossplane CLI |
+| [**instances**](https://github.com/idPlatformKit/instances) | The project's own demo installation | YAML |
 
 ## Where it stands
 
@@ -40,6 +41,7 @@ flowchart LR
 - ✅ Each tenant's OpenBao secrets delivered as Kubernetes Secrets by External Secrets Operator
 - ✅ Postgres databases added to a tenant from the portal, linked to it in the catalog, with per-tenant names on the shared server
 - ✅ HTTPS on kind: OpenBao and Argo CD on `https://<name>.127.0.0.1.nip.io`, through Gateway API (Envoy Gateway) and cert-manager with a local CA, no port-forwards
+- ✅ Installs on your own GitHub org in two commands (`make setup`, `make up`): a guide prepares your org, your instances repository and the portal's sign-in, and the portal runs in the cluster
 - 🔜 Single sign-on with Dex, GitHub teams as groups across kubectl, Argo CD, OpenBao and Grafana
 - 🔜 Kyverno guardrails, a "new app" golden path, per-tenant observability
 
