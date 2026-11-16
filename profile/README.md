@@ -44,7 +44,7 @@ flowchart LR
 - ✅ Installs on your own GitHub org in two commands (`make setup`, `make up`): a guide prepares your org, your instances repository and the portal's sign-in, and the portal runs in the cluster
 - ✅ Single sign-on with Dex: the org's GitHub teams are groups for kubectl, Argo CD and OpenBao, so a team gets access to its own tenants and secrets, and `platform-admins` to everything
 - ✅ Dedicated identities: read-only, expiring access for agents and CI (GitHub Actions OIDC, no stored kubeconfig), and an audited, one-hour break-glass instead of shared admin credentials
-- 🔜 The portal made our own: an IdPlatformKit theme and an admin page for platform admins
+- ✅ The portal made our own: the IdPlatformKit theme and logo, and an admin page where platform admins see the tools behind the platform and the health of every Argo CD Application
 - 🔜 Kyverno guardrails, a "new app" golden path, per-tenant observability
 
 Detailed roadmap in the [Orchestrator issues](https://github.com/idPlatformKit/Orchestrator/issues?q=label%3Aroadmap).
